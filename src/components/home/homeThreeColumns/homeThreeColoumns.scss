@@ -1,0 +1,54 @@
+.home-section {
+    background-image: url('../../../assets/home/3 Columns Background.png');
+
+    &__columns {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      text-align: center;
+      height: 384px;
+    //   border: 1px solid black;
+    }
+  
+    &__column {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      width: 334px;
+      height: 252px;
+    }
+  
+    &__column-info {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+  
+    &__column-info-header,
+    &__column-info-subheader,
+    &__column-info-text {
+      margin: 0;
+      padding: 5px 0;
+      text-align: center;
+      font-weight: 200;
+      color: #5E5322;
+    }
+
+    &__column-info-header {
+        font-size: 90px;
+    }
+
+    &__column-info-subheader {
+        font-size: 18px;
+        margin-top: 10px;
+        text-transform: uppercase;
+    }
+
+    &__column-info-text {
+        font-size: 16px;
+        line-height: 1.5;
+        margin-top: 28px;
+    }
+  }

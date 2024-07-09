@@ -1,0 +1,25 @@
+@import '../../scss/settings/_colors.scss';
+.nav-scroll {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: nowrap;
+
+}
+
+.nav-scroll__link {
+    font-size: 18px;
+    font-weight: 400;
+    color: #3C3C3C;
+    text-decoration: none;
+    padding: 5px;
+    cursor: pointer;
+    border: 1px solid transparent;
+    color: $dark-grey;
+}
+
+.nav-scroll__link:hover {
+    color: #555;
+    // text-decoration: underline;
+    border: 1px solid $dark-grey;
+}

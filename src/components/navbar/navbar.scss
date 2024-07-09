@@ -1,0 +1,24 @@
+@import '../../scss/settings/_colors.scss';
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  &__link {
+    text-decoration: none;
+    color: #333;
+    text-decoration: none;
+    padding: 5px;
+    cursor: pointer;
+    border: 1px solid transparent;
+    font-size: 14px;
+    font-weight: 400;
+    color: $medium-grey;
+
+
+    &:hover {
+      border: 1px solid #FAD648;
+    }
+  }
+}
