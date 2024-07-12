@@ -9,8 +9,8 @@ const HomeHeader = () => {
     return (
         <header className="home-header">
             <div className="home-header__image-container">
-                <figure className="home-header__image-box">
-                    <img src={heroImage} alt="Hero Image" className="home-header__image" />
+                <figure className="home-header__image-container__image-box">
+                    <img src={heroImage} alt="Hero Image" className="home-header__image-container__image-box__image" />
                 </figure>
             </div>
             <div className="home-header__content">
