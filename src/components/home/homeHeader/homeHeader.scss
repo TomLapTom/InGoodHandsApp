@@ -12,15 +12,20 @@
         width: 885px;
 
         &__image-box {
-            // height: 100vh;
+            // object-fit: cover;
+            // object-position: right;
+            height: 100%;
             // overflow: hidden;
             // object-position: right;
+            position: relative;
 
-            img {
-                // height: 100vh;
-                // width: auto;
+            &__image {
+                height: 100%;
+                width: auto;
                 // object-fit: cover;
                 // object-position: right;
+                position: absolute;
+                right: 0;
             }
         }
     }
