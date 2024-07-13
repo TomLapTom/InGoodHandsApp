@@ -5,6 +5,8 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import ScrollNav from "../scrollNav/ScrollNav";
 import Navbar from "../navbar/Navbar";
 import Decoration from "../../assets/home/Decoration.svg";
+import Register from '../register/Register.jsx';
+import { Link } from "react-router-dom";
 import './login.scss'
 
 const loginSchema = z.object({
@@ -55,7 +57,7 @@ const Login = () => {
                     </div>
                     <div className="login-section__form__actions">
                         <button type="submit" className="login-section__form__actions__button">Zaloguj się</button>
-                        <button type="button" className="login-section__form__actions__button">Załóż konto</button>
+                        <Link to="/register" type="button" className="login-section__form__actions__button">Załóż konto</Link>
                     </div>
                 </form>
             </section>
