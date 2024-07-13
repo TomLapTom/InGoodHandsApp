@@ -1,8 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
 import Decoration from "../../../assets/home/Decoration.svg";
+import Facebook from "../../../assets/home/Facebook.png";
+import Instagram from "../../../assets/home/Instagram.png";
+import { submitForm } from "../../../services/api";
 import './contact.scss';
 
 const schema = z.object({
@@ -14,11 +17,27 @@ const schema = z.object({
 });
 
 const Contact = () => {
-    const { register, handleSubmit, formState: { errors } } = useForm({
+    const { register, handleSubmit, formState: { errors }, reset } = useForm({
         resolver: zodResolver(schema)
     });
 
-    const onSubmit = data => console.log(data);
+    const [isSubmitted, setIsSubmitted] = useState(false)
+    const [isError, setIsError] = useState(false)
+
+    const onSubmit = async (data) => {
+        const response = await submitForm(data);
+        if (response.success) {
+            setIsSubmitted(true);
+            setIsError(false);
+            reset();
+            setTimeout(() => setIsSubmitted(false), 2000);
+        } else {
+            console.error("Wystąpił błąd przy wysyłaniu formularza: ", response.error);
+            setIsError(true);
+            setIsSubmitted(false);
+        }
+    };
+
 
     return (
         <>
@@ -29,6 +48,8 @@ const Contact = () => {
                         <div className="container__contact__info__decoration">
                             <img src={Decoration} alt="Decoration" />
                         </div>
+                        {isSubmitted && !isError && <p className="container__contact__info__success-message">Wiadomość została wysłana! Wkrótce się skontaktujemy.</p>}
+                        {isError && <p className="container__contact__info__error-message">Wysyłka wiadomości nie powiodła się. Spróbuj ponownie.</p>}
                     </div>
                     <form className="container__contact__form" onSubmit={handleSubmit(onSubmit)}>
                         <div className="container__contact__form-group-text">
@@ -57,7 +78,13 @@ const Contact = () => {
                 </div>
             </section>
             <footer className="footer">
-                <p className="footer__txt">Copyright by Coders Lab</p>
+                <div className="footer__content">
+                    <p className="footer__txt">Copyright by Coders Lab</p>
+                    <div className="footer__icons">
+                        <img src={Facebook} alt="Facebook" />
+                        <img src={Instagram} alt="Instagram" />
+                    </div>
+                </div>
             </footer>
         </>
     );

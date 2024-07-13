@@ -8,13 +8,13 @@ import './whoDoWeHelp.scss';
 
 const WhoDoWeHelp = () => {
 
-    const [currentData, setCurrentData] = useState([])
-    const [selectedCategory, setSelectedCategory] = useState('')
-    const [currentPage, setCurrentPage] = useState(1)
-    const itemsPerPage = 3
+    const [currentData, setCurrentData] = useState(fundationData);
+    const [selectedCategory, setSelectedCategory] = useState('fundation');
+    const [currentPage, setCurrentPage] = useState(1);
+    const itemsPerPage = 3;
 
     const handleButtonClick = (data) => {
-        setSelectedCategory(data)
+        setSelectedCategory(data);
         switch (data) {
             case 'fundation':
                 setCurrentData(fundationData);
@@ -28,22 +28,19 @@ const WhoDoWeHelp = () => {
             default:
                 setCurrentData([]);
         }
-        setCurrentPage(1)
-    }
+        setCurrentPage(1);
+    };
 
+    const indexOfLastItem = currentPage * itemsPerPage;
+    const indexOfFirstItem = indexOfLastItem - itemsPerPage;
+    const currentItems = currentData.slice(indexOfFirstItem, indexOfLastItem);
 
+    const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
-    const indexOfLastItem = currentPage * itemsPerPage
-    const indexOfFirstItem = indexOfLastItem - itemsPerPage
-    const currentItems = currentData.slice(indexOfFirstItem, indexOfLastItem)
-
-    const paginate = (pageNumber) => setCurrentPage(pageNumber)
-
-    const pageNumbers = []
+    const pageNumbers = [];
     for (let i = 1; i <= Math.ceil(currentData.length / itemsPerPage); i++) {
-        pageNumbers.push(i)
+        pageNumbers.push(i);
     }
-
 
     return (
         <div id="whoDoWeHelp" className="who-do-we-help">
@@ -54,9 +51,9 @@ const WhoDoWeHelp = () => {
                 </div>
             </div>
             <div className="who-do-we-help__categories">
-                <button onClick={() => handleButtonClick('fundation')} className="who-do-we-help__categories__button">Fundacjom</button>
-                <button onClick={() => handleButtonClick('organizations')} className="who-do-we-help__categories__button">Organizacjom pozarządowym</button>
-                <button onClick={() => handleButtonClick('local')} className="who-do-we-help__categories__button">Lokalnym zbiórkom</button>
+                <button onClick={() => handleButtonClick('fundation')} className={`who-do-we-help__categories__button ${selectedCategory === 'fundation' ? 'who-do-we-help__categories__button--selected' : ''}`}>Fundacjom</button>
+                <button onClick={() => handleButtonClick('organizations')} className={`who-do-we-help__categories__button ${selectedCategory === 'organizations' ? 'who-do-we-help__categories__button--selected' : ''}`}>Organizacjom pozarządowym</button>
+                <button onClick={() => handleButtonClick('local')} className={`who-do-we-help__categories__button ${selectedCategory === 'local' ? 'who-do-we-help__categories__button--selected' : ''}`}>Lokalnym zbiórkom</button>
             </div>
             {descriptions.filter(description => description.category === selectedCategory).map((description) => (
                 <div key={description.id} className="who-do-we-help__description">
@@ -67,27 +64,24 @@ const WhoDoWeHelp = () => {
             ))}
             {currentItems.map((item) => (
                 <div key={item.id} className="who-do-we-help__organizations">
-
                     <div className="who-do-we-help__organizations__item">
                         <div className="who-do-we-help__organizations__item__content">
                             <p className="who-do-we-help__organizations__item__content__name">{item.name}</p>
                             <p className="who-do-we-help__organizations__item__content__description">{item.description}</p>
                         </div>
-
                     </div>
                     <span className="who-do-we-help__organizations__item__detail">{item.item}</span>
-
                 </div>
             ))}
             <div className={`who-do-we-help__pagination ${pageNumbers.length > 1 ? 'who-do-we-help__pagination--visible' : ''}`}>
                 {pageNumbers.map(number => (
-                    <button key={number} onClick={() => paginate(number)} className="who-do-we-help__pagination__pagination-button">
+                    <button key={number} onClick={() => paginate(number)} className={`who-do-we-help__pagination__pagination-button ${currentPage === number ? 'who-do-we-help__pagination__pagination-button--selected' : ''}`}>
                         {number}
                     </button>
                 ))}
             </div>
         </div>
-    )
+    );
 }
 
-export default WhoDoWeHelp
+export default WhoDoWeHelp;
