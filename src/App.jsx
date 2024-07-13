@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import Home from './components/home/home/Home'
 import Login from './components/login/Login'
 import Register from './components/register/Register'
+import Logouth from './components/logouth/Logouth'
 import './App.css'
 
 function App() {
@@ -14,6 +15,7 @@ function App() {
         <Route path='/' element={<Home />} />
         <Route path='/login' element={<Login />} />
         <Route path='/register' element={<Register />} />
+        <Route path='/logouth' element={<Logouth />} />
       </Routes>
     </div>
     </Router >

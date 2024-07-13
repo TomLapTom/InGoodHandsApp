@@ -5,7 +5,7 @@ import "./start.scss";
 
 const Start = () => {
     return (
-        <div className="homeHeaderBox">
+        <div id="start" className="homeHeaderBox">
             <div className="homeHeaderBox_Content">
                 <div className="downMenuTop_content">
                     <p>Zacznij pomagać!</p>
@@ -20,7 +20,7 @@ const Start = () => {
                         </Link>
                     </div>
                     <div className="downMenuDown_Box">
-                        <Link className="Link" to="/zorganizuj-zbiorke">
+                        <Link className="Link" to="/login">
                             <p>zorganizuj</p>
                             <p>zbiórkę</p>
                         </Link>
