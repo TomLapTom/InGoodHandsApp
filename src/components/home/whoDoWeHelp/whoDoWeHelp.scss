@@ -139,3 +139,7 @@
 .who-do-we-help__pagination--visible {
     visibility: visible;
 }
+
+.who-do-we-help__categories__button--selected, .who-do-we-help__pagination__pagination-button--selected {
+    border: 0.75px solid #707070;
+}
