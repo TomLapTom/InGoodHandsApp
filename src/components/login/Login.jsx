@@ -5,13 +5,12 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import ScrollNav from "../scrollNav/ScrollNav";
 import Navbar from "../navbar/Navbar";
 import Decoration from "../../assets/home/Decoration.svg";
-import Register from '../register/Register.jsx';
 import { Link } from "react-router-dom";
 import './login.scss'
 
 const loginSchema = z.object({
-    email: z.string().email({ message: "Nieprawidłowy adres email" }),
-    password: z.string().min(1, { message: "Hasło jest wymagane" }),
+    email: z.string().email({ message: "Podany email jest nieprawidłowy" }),
+    password: z.string().min(6, { message: "Podane haso jest za krótkie" }),
 });
 
 const Login = () => {
