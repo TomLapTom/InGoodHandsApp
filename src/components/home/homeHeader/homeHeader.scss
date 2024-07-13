@@ -2,28 +2,19 @@
     display: flex;
     height: 100vh;
     align-items: start;
-    // border: 1px solid red;
 
     &__image-container {
         height: 100vh;
         overflow: hidden;
-        // margin: 0;
-        // padding: 0;
         width: 885px;
 
         &__image-box {
-            // object-fit: cover;
-            // object-position: right;
             height: 100%;
-            // overflow: hidden;
-            // object-position: right;
             position: relative;
 
             &__image {
                 height: 100%;
                 width: auto;
-                // object-fit: cover;
-                // object-position: right;
                 position: absolute;
                 right: 0;
             }
@@ -41,6 +32,8 @@
     &__navbar,
     &__scroll-nav {
         align-self: flex-end;
+        flex-wrap: nowrap;
+        white-space: nowrap;
     }
 
     &__navbar {
@@ -52,9 +45,8 @@
 
     &__scroll-nav {
         width: 683px;
-        margin-top: 0;
         margin-top: 35px;
-        margin-right: 142px;
+        margin-right: 100px;
     }
 
     &__start {

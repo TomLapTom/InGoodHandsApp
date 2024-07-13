@@ -6,6 +6,8 @@ import ScrollNav from "../scrollNav/ScrollNav";
 import Navbar from "../navbar/Navbar";
 import Decoration from "../../assets/home/Decoration.svg";
 import { Link } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faHome } from "@fortawesome/free-solid-svg-icons";
 import './login.scss'
 
 const loginSchema = z.object({
@@ -30,7 +32,10 @@ const Login = () => {
                         <Navbar />
                     </nav>
                     <div className="home-header__scroll-nav">
-                        <ScrollNav />
+                        <Link to="/" className="home-header__scroll-nav__home">
+                            <FontAwesomeIcon icon={faHome} />
+                        </Link>
+                        {/* <ScrollNav /> */}
                     </div>
                 </div>
             </header>

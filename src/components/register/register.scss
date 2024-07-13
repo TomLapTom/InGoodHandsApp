@@ -1,9 +1,9 @@
-.login-container {
+.register-container {
     position: relative;
     height: 100vh;
 }
 
-.login-section {
+.register-section {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -87,13 +87,14 @@
                 justify-content: center;
                 align-items: center;
                 color: #000000;
-
-                &:nth-child(1) {
+                
+                &:nth-child(2) {
                     border: 1px solid #3C3C3C;
                 }
 
+
                 &:hover {
-                    border: 1px solid #3C3C3C;
+                    border: 2px solid #030303;
                     font-weight: 600;
                 }
             }
